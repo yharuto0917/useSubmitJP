@@ -13,6 +13,9 @@ export function matchesSubmitKey(
   return submitKeys.some((combo) => matchesCombo(event, combo));
 }
 
+/**
+ * キーイベントが指定されたキーコンボにマッチするか判定
+ */
 function matchesCombo(
   event: KeyboardEvent,
   combo: SubmitKeyCombo
@@ -23,6 +26,9 @@ function matchesCombo(
   return matchesCustomCombo(event, combo);
 }
 
+/**
+ * キーイベントが指定されたキーコンボにマッチするか判定
+ */
 function matchesPredefinedCombo(
   event: KeyboardEvent,
   combo: string
@@ -55,6 +61,9 @@ function matchesPredefinedCombo(
   }
 }
 
+/**
+ * キーイベントが指定されたキーコンボにマッチするか判定
+ */
 function matchesCustomCombo(
   event: KeyboardEvent,
   combo: CustomKeyCombo
