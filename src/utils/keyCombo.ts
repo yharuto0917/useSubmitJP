@@ -68,6 +68,8 @@ function matchesCustomCombo(
   event: KeyboardEvent,
   combo: CustomKeyCombo
 ): boolean {
+  if (event.key !== combo.key) return false;
+
   const { ctrlKey, metaKey, shiftKey, altKey } = event;
 
   // 省略された修飾キーは「押されていないこと」を要求する
