@@ -70,10 +70,12 @@ function matchesCustomCombo(
 ): boolean {
   const { ctrlKey, metaKey, shiftKey, altKey } = event;
 
+  // 省略された修飾キーは「押されていないこと」を要求する
+  // （任意扱いにすると { ctrlKey: true } が Ctrl+Shift+Enter 等にもマッチしてしまう）
   return (
-    (combo.ctrlKey === undefined || combo.ctrlKey === ctrlKey) &&
-    (combo.metaKey === undefined || combo.metaKey === metaKey) &&
-    (combo.shiftKey === undefined || combo.shiftKey === shiftKey) &&
-    (combo.altKey === undefined || combo.altKey === altKey)
+    (combo.ctrlKey ?? false) === ctrlKey &&
+    (combo.metaKey ?? false) === metaKey &&
+    (combo.shiftKey ?? false) === shiftKey &&
+    (combo.altKey ?? false) === altKey
   );
 }
